@@ -1,0 +1,18 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        if(prices.length<2){
+            return 0;
+        }
+        int mini=Math.min(prices[0],prices[1]);
+        int max=prices[1]-mini;
+        for(int i=2;i<prices.length;i++){
+            if(prices[i]<mini){
+                mini=prices[i];
+            }
+            int cal=prices[i]-mini;
+            if(max < cal){
+                max=cal;
+            }
+        }
+        return max;
+    }}
