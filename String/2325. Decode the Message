@@ -1,0 +1,31 @@
+class Solution {
+    public String decodeMessage(String key, String message) {
+        String str = "";
+        for (int i = 0; i < key.length(); i++) {
+            char v=key.charAt(i);
+            if (str.indexOf(v) == -1) {
+                str +=v;
+            }
+        }
+        str = str.replace(" ", "");
+        char[] arr = str.toCharArray();
+        char[] alpha=new char[arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            alpha[i] = (char) ('a' + i);
+        }
+        String res="";
+        for(int i=0;i<message.length();i++){
+            char ch1=message.charAt(i);
+            if(ch1==' '){
+                res+=' ';
+            }
+            for(int j=0;j<str.length();j++){
+                if(ch1==str.charAt(j)){
+                    res+=alpha[j];
+                }
+            }
+        }
+        return res;
+    }
+}
