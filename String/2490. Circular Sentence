@@ -1,0 +1,31 @@
+class Solution {
+    public boolean isCircularSentence(String sentences) {
+         String sentence[]=sentences.split(" ");
+         if(sentence.length==1){
+              char end1=sentence[sentence.length-1].charAt(sentence[sentence.length-1].length()-1);
+             char first1=sentence[0].charAt(0);
+           if(end1==first1){
+            return true;
+        }
+        else{
+            return false;
+        }
+         }
+        for(int i=0;i<sentence.length-1;i++){
+            char end=sentence[i].charAt(sentence[i].length()-1);
+            char first=sentence[i+1].charAt(0);
+            if(end!=first){
+                return false;
+            }
+        }
+        char end3=sentence[sentence.length-1].charAt(sentence[sentence.length-1].length()-1);
+        char first3=sentence[0].charAt(0);
+        if(end3==first3){
+            return true;
+        }
+        else{
+            return false;
+        }
+      
+    }
+}
