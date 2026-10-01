@@ -1,0 +1,25 @@
+class Solution {
+    public int findKthPositive(int[] arr, int k) {
+        int n = arr[arr.length - 1];
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = 1; i <= n; i++) {
+            boolean val = false;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] == i) {
+                    val = true;
+                    break;
+                }
+            }
+            if (!val) {
+                list.add(i);
+            }
+        }
+        int i = n + 1;
+        while (list.size() < k) {
+            list.add(i);
+            i++;
+        }
+
+        return list.get(k - 1);
+    }
+}
